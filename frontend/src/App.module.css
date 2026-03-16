@@ -1,0 +1,112 @@
+/* Mobile: bottom nav */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.logo {
+  display: none; /* hidden on mobile */
+}
+
+.main {
+  flex: 1;
+  padding: 20px 16px 80px; /* bottom padding for nav */
+}
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  z-index: 100;
+}
+
+.sidebar {
+  background: none;
+  border: none;
+  padding: 0;
+  position: static;
+  height: auto;
+  width: auto;
+}
+
+.navItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 500;
+  border-radius: 0;
+  transition: all 0.15s;
+  gap: 2px;
+}
+
+.navItem:hover { color: var(--text); background: var(--surface2); }
+.navItem.active { color: var(--accent); }
+
+/* Desktop: sidebar */
+@media (min-width: 768px) {
+  .layout { flex-direction: row; }
+
+  .sidebar {
+    width: 220px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 8px;
+  }
+
+  .nav {
+    position: static;
+    border: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+  }
+
+  .navItem {
+    flex: none;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    gap: 0;
+  }
+
+  .main {
+    margin-left: 220px;
+    padding: 40px;
+    max-width: 1200px;
+  }
+}
+
+.logoIcon { color: var(--accent); font-size: 20px; }
+.logoText {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

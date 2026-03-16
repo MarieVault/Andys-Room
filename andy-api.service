@@ -1,0 +1,14 @@
+[Unit]
+Description=Andy Roleplay Dashboard API
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/nanoclaw/groups/telegram_main/webapp/backend
+ExecStart=/usr/bin/node index.js
+Restart=on-failure
+RestartSec=5
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
